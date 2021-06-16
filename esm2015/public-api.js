@@ -1,0 +1,6 @@
+/*
+ * Public API Surface of g-ui
+ */
+export * from './lib/components/header/header.component';
+export * from './lib/components/header/header.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2ctdWkvc3JjL3B1YmxpYy1hcGkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7O0dBRUc7QUFDSCxjQUFjLDBDQUEwQyxDQUFDO0FBQ3pELGNBQWMsdUNBQXVDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIGctdWlcbiAqL1xuZXhwb3J0ICogZnJvbSAnLi9saWIvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudCc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIubW9kdWxlJztcbiJdfQ==
