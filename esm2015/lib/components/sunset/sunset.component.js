@@ -1,0 +1,25 @@
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+export class SunsetComponent {
+    constructor() {
+        this.sunChange = new EventEmitter();
+        this.sunset = true;
+    }
+    onDayChange() {
+        this.sunChange.emit();
+    }
+}
+SunsetComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'g-sunset',
+                template: "<div class=\"button\" (click)=\"onDayChange()\" [style]=\"{'width': width, 'border-radius': borderRadius}\"\n     [ngClass]=\"{'sunset': sunset, 'sunrise': !sunset, 'raised': raised}\">\n  <div class=\"sun\" [ngClass]=\"sunset ? 'sunset' : 'sunrise'\"></div>\n  <div class=\"shadow\" [ngClass]=\"sunset ? 'sunset' : 'sunrise'\"></div>\n</div>\n",
+                styles: [".button{height:3rem;width:3rem;border-radius:50%;overflow:hidden;cursor:pointer;position:absolute}.button.raised{box-shadow:0 3px 3px -2px rgba(0,0,0,.2),0 3px 4px 0 rgba(0,0,0,.14),0 1px 8px 0 rgba(0,0,0,.12)}.button.sunset{background-color:#4a354c;-webkit-animation-name:sunset-background;animation-name:sunset-background;-webkit-animation-duration:2s;animation-duration:2s}.button.sunrise{background-color:#1e45b4;-webkit-animation-name:sunrise-background;animation-name:sunrise-background;-webkit-animation-duration:2s;animation-duration:2s}.button .shadow{height:300%;width:100%;background:radial-gradient(circle at 50% 0,#6b9cec,transparent 25%),radial-gradient(circle at 50% 100%,#966164,transparent 25%)}.button .shadow.sunset{-webkit-animation-name:sunset-shadow;animation-name:sunset-shadow;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.button .shadow.sunrise,.button .shadow.sunset{background-repeat:no-repeat;-webkit-animation-duration:2s;animation-duration:2s}.button .shadow.sunrise{-webkit-animation-name:sunrise-shadow;animation-name:sunrise-shadow;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.button .sun{position:absolute;top:0;height:100%;width:100%;background:radial-gradient(circle at 50% 50%,#ef9029,transparent 25%),radial-gradient(circle at 50% 50%,#f6a65d,transparent 50%)}.button .sun.sunrise{-webkit-animation-name:sunrise;animation-name:sunrise}.button .sun.sunrise,.button .sun.sunset{background-repeat:no-repeat;-webkit-animation-duration:2s;animation-duration:2s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}.button .sun.sunset{-webkit-animation-name:sunset;animation-name:sunset}@-webkit-keyframes sunrise-shadow{0%{background-position-y:-6rem}to{background-position-y:0}}@keyframes sunrise-shadow{0%{background-position-y:-6rem}to{background-position-y:0}}@-webkit-keyframes sunset-shadow{0%{background-position-y:0}to{background-position-y:-6rem}}@keyframes sunset-shadow{0%{background-position-y:0}to{background-position-y:-6rem}}@-webkit-keyframes sunrise{0%{background-position-y:20px}to{background-position-y:-20px}}@keyframes sunrise{0%{background-position-y:20px}to{background-position-y:-20px}}@-webkit-keyframes sunset{0%{background-position-y:-20px}to{background-position-y:20px}}@keyframes sunset{0%{background-position-y:-20px}to{background-position-y:20px}}@-webkit-keyframes sunset-background{0%{background-color:#1e45b4}to{background-color:#4a354c}}@keyframes sunset-background{0%{background-color:#1e45b4}to{background-color:#4a354c}}@-webkit-keyframes sunrise-background{0%{background-color:#4a354c}to{background-color:#1e45b4}}@keyframes sunrise-background{0%{background-color:#4a354c}to{background-color:#1e45b4}}"]
+            },] }
+];
+SunsetComponent.propDecorators = {
+    width: [{ type: Input }],
+    borderRadius: [{ type: Input }],
+    raised: [{ type: Input }],
+    sunChange: [{ type: Output }],
+    sunset: [{ type: Input }]
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3Vuc2V0LmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL2ctdWkvc3JjL2xpYi9jb21wb25lbnRzL3N1bnNldC9zdW5zZXQuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxTQUFTLEVBQUUsS0FBSyxFQUFFLFlBQVksRUFBRSxNQUFNLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFPdkUsTUFBTSxPQUFPLGVBQWU7SUFMNUI7UUFVWSxjQUFTLEdBQUcsSUFBSSxZQUFZLEVBQVEsQ0FBQztRQUN0QyxXQUFNLEdBQUcsSUFBSSxDQUFDO0lBS3pCLENBQUM7SUFIQyxXQUFXO1FBQ1QsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLEVBQUUsQ0FBQztJQUN4QixDQUFDOzs7WUFmRixTQUFTLFNBQUM7Z0JBQ1QsUUFBUSxFQUFFLFVBQVU7Z0JBQ3BCLG9XQUFzQzs7YUFFdkM7OztvQkFFRSxLQUFLOzJCQUNMLEtBQUs7cUJBQ0wsS0FBSzt3QkFFTCxNQUFNO3FCQUNOLEtBQUsiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQsIElucHV0LCBFdmVudEVtaXR0ZXIsIE91dHB1dCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5AQ29tcG9uZW50KHtcbiAgc2VsZWN0b3I6ICdnLXN1bnNldCcsXG4gIHRlbXBsYXRlVXJsOiAnLi9zdW5zZXQuY29tcG9uZW50Lmh0bWwnLFxuICBzdHlsZVVybHM6IFsnLi9zdW5zZXQuY29tcG9uZW50LnNjc3MnXVxufSlcbmV4cG9ydCBjbGFzcyBTdW5zZXRDb21wb25lbnQge1xuICBASW5wdXQoKSB3aWR0aDogc3RyaW5nO1xuICBASW5wdXQoKSBib3JkZXJSYWRpdXM6IHN0cmluZztcbiAgQElucHV0KCkgcmFpc2VkOiBib29sZWFuO1xuXG4gIEBPdXRwdXQoKSBzdW5DaGFuZ2UgPSBuZXcgRXZlbnRFbWl0dGVyPHZvaWQ+KCk7XG4gIEBJbnB1dCgpIHN1bnNldCA9IHRydWU7XG5cbiAgb25EYXlDaGFuZ2UoKTogdm9pZCB7XG4gICAgdGhpcy5zdW5DaGFuZ2UuZW1pdCgpO1xuICB9XG59XG4iXX0=
