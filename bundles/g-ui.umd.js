@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('g-ui', ['exports', '@angular/core', '@angular/common'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['g-ui'] = {}, global.ng.core, global.ng.common));
-}(this, (function (exports, core, common) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common'), require('primeng/dialog')) :
+    typeof define === 'function' && define.amd ? define('g-ui', ['exports', '@angular/core', '@angular/common', 'primeng/dialog'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['g-ui'] = {}, global.ng.core, global.ng.common, global.dialog));
+}(this, (function (exports, core, common, dialog) { 'use strict';
 
     var HeaderComponent = /** @class */ (function () {
         function HeaderComponent() {
@@ -40,6 +40,52 @@
                 },] }
     ];
 
+    var ModalComponent = /** @class */ (function () {
+        function ModalComponent() {
+            this.borderRadius = '20px';
+            this.resizable = false;
+            this.visibleChange = new core.EventEmitter();
+            this.zIndex = 100;
+            this.appendToBody = false;
+        }
+        return ModalComponent;
+    }());
+    ModalComponent.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'g-modal',
+                    template: "<p-dialog [visible]=\"visible\" (visibleChange)=\"visibleChange.emit($event)\" [baseZIndex]=\"zIndex\"\n          [resizable]=\"resizable\" [focusOnShow]=\"false\" [draggable]=\"draggable\"\n          [focusTrap]=\"false\" [blockScroll]=\"true\" [showHeader]=\"false\"\n          [appendTo]=\"appendToBody && 'body'\"\n          [position]=\"position\" [modal]=\"true\" [style]=\"{'height': height,\n           'width': width, 'border-radius': borderRadius, 'font-family': 'Lato'}\"\n          [dismissableMask]=\"true\" [contentStyle]=\"{'border-radius': borderRadius, 'padding': 0}\">\n  <ng-content></ng-content>\n</p-dialog>\n",
+                    styles: [":host ::ng-deep .p-dialog-content{padding:0;height:100%;width:100%}:host ::ng-deep .p-dialog-mask{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background-color:rgba(0,0,0,.15)}"]
+                },] }
+    ];
+    ModalComponent.propDecorators = {
+        borderRadius: [{ type: core.Input }],
+        height: [{ type: core.Input }],
+        width: [{ type: core.Input }],
+        resizable: [{ type: core.Input }],
+        visible: [{ type: core.Input }],
+        visibleChange: [{ type: core.Output }],
+        draggable: [{ type: core.Input }],
+        position: [{ type: core.Input }],
+        zIndex: [{ type: core.Input }],
+        appendToBody: [{ type: core.Input }]
+    };
+
+    var ModalModule = /** @class */ (function () {
+        function ModalModule() {
+        }
+        return ModalModule;
+    }());
+    ModalModule.decorators = [
+        { type: core.NgModule, args: [{
+                    declarations: [ModalComponent],
+                    exports: [ModalComponent],
+                    imports: [
+                        common.CommonModule,
+                        dialog.DialogModule
+                    ]
+                },] }
+    ];
+
     /*
      * Public API Surface of g-ui
      */
@@ -50,6 +96,8 @@
 
     exports.HeaderComponent = HeaderComponent;
     exports.HeaderModule = HeaderModule;
+    exports.ModalComponent = ModalComponent;
+    exports.ModalModule = ModalModule;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

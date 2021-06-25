@@ -1,5 +1,6 @@
-import { Component, Input, NgModule } from '@angular/core';
+import { Component, Input, NgModule, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
 
 class HeaderComponent {
     constructor() {
@@ -33,6 +34,48 @@ HeaderModule.decorators = [
             },] }
 ];
 
+class ModalComponent {
+    constructor() {
+        this.borderRadius = '20px';
+        this.resizable = false;
+        this.visibleChange = new EventEmitter();
+        this.zIndex = 100;
+        this.appendToBody = false;
+    }
+}
+ModalComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'g-modal',
+                template: "<p-dialog [visible]=\"visible\" (visibleChange)=\"visibleChange.emit($event)\" [baseZIndex]=\"zIndex\"\n          [resizable]=\"resizable\" [focusOnShow]=\"false\" [draggable]=\"draggable\"\n          [focusTrap]=\"false\" [blockScroll]=\"true\" [showHeader]=\"false\"\n          [appendTo]=\"appendToBody && 'body'\"\n          [position]=\"position\" [modal]=\"true\" [style]=\"{'height': height,\n           'width': width, 'border-radius': borderRadius, 'font-family': 'Lato'}\"\n          [dismissableMask]=\"true\" [contentStyle]=\"{'border-radius': borderRadius, 'padding': 0}\">\n  <ng-content></ng-content>\n</p-dialog>\n",
+                styles: [":host ::ng-deep .p-dialog-content{padding:0;height:100%;width:100%}:host ::ng-deep .p-dialog-mask{-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);background-color:rgba(0,0,0,.15)}"]
+            },] }
+];
+ModalComponent.propDecorators = {
+    borderRadius: [{ type: Input }],
+    height: [{ type: Input }],
+    width: [{ type: Input }],
+    resizable: [{ type: Input }],
+    visible: [{ type: Input }],
+    visibleChange: [{ type: Output }],
+    draggable: [{ type: Input }],
+    position: [{ type: Input }],
+    zIndex: [{ type: Input }],
+    appendToBody: [{ type: Input }]
+};
+
+class ModalModule {
+}
+ModalModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [ModalComponent],
+                exports: [ModalComponent],
+                imports: [
+                    CommonModule,
+                    DialogModule
+                ]
+            },] }
+];
+
 /*
  * Public API Surface of g-ui
  */
@@ -41,5 +84,5 @@ HeaderModule.decorators = [
  * Generated bundle index. Do not edit.
  */
 
-export { HeaderComponent, HeaderModule };
+export { HeaderComponent, HeaderModule, ModalComponent, ModalModule };
 //# sourceMappingURL=g-ui.js.map
