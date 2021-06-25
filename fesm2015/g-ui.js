@@ -106,6 +106,7 @@ class SunsetModule {
 SunsetModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [SunsetComponent],
+                exports: [SunsetComponent],
                 imports: [
                     CommonModule
                 ]
@@ -135,6 +136,7 @@ class SpinnerModule {
 SpinnerModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [SpinnerComponent],
+                exports: [SpinnerComponent],
                 imports: [
                     CommonModule
                 ]
@@ -165,6 +167,7 @@ class InputFieldModule {
 InputFieldModule.decorators = [
     { type: NgModule, args: [{
                 declarations: [InputFieldComponent],
+                exports: [InputFieldComponent],
                 imports: [
                     CommonModule,
                     ReactiveFormsModule

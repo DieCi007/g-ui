@@ -119,6 +119,7 @@
     SunsetModule.decorators = [
         { type: core.NgModule, args: [{
                     declarations: [SunsetComponent],
+                    exports: [SunsetComponent],
                     imports: [
                         common.CommonModule
                     ]
@@ -152,6 +153,7 @@
     SpinnerModule.decorators = [
         { type: core.NgModule, args: [{
                     declarations: [SpinnerComponent],
+                    exports: [SpinnerComponent],
                     imports: [
                         common.CommonModule
                     ]
@@ -192,6 +194,7 @@
     InputFieldModule.decorators = [
         { type: core.NgModule, args: [{
                     declarations: [InputFieldComponent],
+                    exports: [InputFieldComponent],
                     imports: [
                         common.CommonModule,
                         forms.ReactiveFormsModule
