@@ -3,6 +3,7 @@ export declare class ModalComponent {
     borderRadius: string;
     height: string;
     width: string;
+    maxWidth: string;
     resizable: boolean;
     visible: boolean;
     visibleChange: EventEmitter<boolean>;

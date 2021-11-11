@@ -1,0 +1,36 @@
+import { EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { IButtonClickData, ISortInfo, ITableButtonData, ITableHeaderData } from './model';
+import { BreakpointService } from '../../core/service/breakpoint.service';
+export declare class TableComponent<T> implements OnInit, OnDestroy {
+    private bp;
+    private fb;
+    headerData: ITableHeaderData[];
+    expandedHeaderData: ITableHeaderData[];
+    buttonData: ITableButtonData[];
+    data: T[];
+    noDataMessage: string;
+    cardMode: boolean;
+    maxHeightPC: string;
+    maxHeightMobile: string;
+    changeAtPx: number;
+    buttonHeaderName: string;
+    headerColor: 'primary' | 'secondary' | string;
+    hoverColor: 'primary' | 'secondary';
+    sort: ISortInfo;
+    filterable: boolean;
+    buttonClick: EventEmitter<IButtonClickData<T>>;
+    sortChange: EventEmitter<ISortInfo>;
+    filterChange: EventEmitter<string>;
+    mobileStyle: boolean;
+    private bp$;
+    filterForm: FormGroup;
+    private filterSubscription;
+    constructor(bp: BreakpointService, fb: FormBuilder);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    activateAccordion(accordion: HTMLTableDataCellElement): void;
+    get allHeaderData(): ITableHeaderData[];
+    onButtonClick(event: MouseEvent, id: string, el: T): void;
+    onSortChange(property: string): void;
+}
